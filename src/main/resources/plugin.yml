@@ -7,3 +7,5 @@ commands:
   guild:
     description: shows guild help.
     usage: /<command>
+    aliases:
+      - g

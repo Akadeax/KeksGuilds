@@ -11,4 +11,9 @@ public class GuildUpgrade {
     public GuildUpgrade(int id) {
         this.id = id;
     }
+
+    public GuildUpgrade(int id, int amount) {
+        this.id = id;
+        this.amount = amount;
+    }
 }

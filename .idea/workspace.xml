@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0ee3eb5-bb91-4140-b58a-d8cb8f1621b6" name="Default Changelist" comment="added Subcommand support&#10;added Subcommands:&#10;- create&#10;- help&#10;- join&#10;- leave&#10;- disband&#10;added config messaging system">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildCreateSubcommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildDisbandSubcommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildHelpSubcommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildJoinCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildLeaveSubcommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/Subcommand.java" afterDir="false" />
+    <list default="true" id="e0ee3eb5-bb91-4140-b58a-d8cb8f1621b6" name="Default Changelist" comment="added support for invites (and accepting them). added additional upgrades.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/InviteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildInfoSubcommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildInviteSubcommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/upgrades/upgradeHandlers/GuildProximitySpeedHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/Guild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/Guild.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/GuildCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/GuildCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/GuildController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/GuildController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/KeksGuilds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/KeksGuilds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/SaveLoadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/SaveLoadHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/GuildCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/GuildCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildDisbandSubcommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildDisbandSubcommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildJoinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildAcceptSubcommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildLeaveSubcommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/commands/subcommands/GuildLeaveSubcommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/upgrades/GuildUpgrade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/upgrades/GuildUpgrade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/upgrades/GuildUpgradesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/upgrades/GuildUpgradesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/upgrades/upgradeHandlers/GuildSlotUpgradeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/akadeax/keksguilds/upgrades/upgradeHandlers/GuildSlotUpgradeHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/KeksGuilds-1.0-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/KeksGuilds-1.0-shaded.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/KeksGuilds-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/KeksGuilds-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/Guild.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/Guild.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/GuildCommand.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/GuildController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/GuildController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/KeksGuilds.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/KeksGuilds.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/SaveLoadHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/SaveLoadHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/commands/GuildCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/commands/GuildCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/commands/GuildCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/commands/GuildCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/commands/subcommands/GuildDisbandSubcommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/commands/subcommands/GuildDisbandSubcommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/commands/subcommands/GuildJoinCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/commands/subcommands/GuildLeaveSubcommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/commands/subcommands/GuildLeaveSubcommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/upgrades/GuildUpgrade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/upgrades/GuildUpgrade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/upgrades/GuildUpgradesController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/upgrades/GuildUpgradesController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/upgrades/GuildUpgradesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/upgrades/GuildUpgradesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/upgrades/upgradeHandlers/GuildSlotUpgradeHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/akadeax/keksguilds/upgrades/upgradeHandlers/GuildSlotUpgradeHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-KeksGuilds-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-KeksGuilds-1.0.jar" afterDir="false" />
@@ -64,6 +77,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.akadeax.keksguilds.upgrades.upgradeHandlers" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Guilds build" type="MavenRunConfiguration" factoryName="Maven">
@@ -116,17 +134,30 @@
       <option name="presentableId" value="Default" />
       <updated>1584792386263</updated>
     </task>
+    <task id="LOCAL-00001" summary="added Subcommand support&#10;added Subcommands:&#10;- create&#10;- help&#10;- join&#10;- leave&#10;- disband&#10;added config messaging system">
+      <created>1585139471723</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585139471724</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added Subcommand support&#10;added Subcommands:&#10;- create&#10;- help&#10;- join&#10;- leave&#10;- disband&#10;added config messaging system" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Subcommand support&#10;added Subcommands:&#10;- create&#10;- help&#10;- join&#10;- leave&#10;- disband&#10;added config messaging system" />
+    <MESSAGE value="added support for invites (and accepting them). added additional upgrades." />
+    <option name="LAST_COMMIT_MESSAGE" value="added support for invites (and accepting them). added additional upgrades." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="224" width="390" height="327" key="#com.intellij.ide.util.MemberChooser" timestamp="1585130939585">
+    <state x="552" y="179" key="#Notifications" timestamp="1585159218747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="224" width="390" height="327" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585130939585" />
+    <state x="552" y="179" key="#Notifications/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585159218747" />
+    <state x="765" y="224" width="390" height="327" key="#com.intellij.ide.util.MemberChooser" timestamp="1585164960849">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="224" width="390" height="327" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585164960849" />
     <state x="664" y="51" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1585119528563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -135,26 +166,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="721" y="361" width="520" height="317" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585080840913" />
-    <state x="573" y="0" key="CommitChangelistDialog2" timestamp="1585139469310">
+    <state x="573" y="0" key="CommitChangelistDialog2" timestamp="1585167145180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="573" y="0" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585139469310" />
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1585139495261">
+    <state x="573" y="0" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585167145180" />
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1585167235773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585139495261" />
-    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1585139495261">
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585167235773" />
+    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1585167235773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585139495261" />
-    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1585139495261">
+    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585167235773" />
+    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1585167235773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585139495261" />
-    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1585139495261">
+    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585167235773" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1585167235773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585139495261" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585167235773" />
     <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1585139475877">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -163,21 +194,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="767" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585131804555" />
-    <state x="646" y="236" width="627" height="568" key="find.popup" timestamp="1585138297881">
+    <state x="646" y="236" width="627" height="568" key="find.popup" timestamp="1585164967802">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="646" y="236" width="627" height="568" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585138297881" />
+    <state x="646" y="236" width="627" height="568" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585164967802" />
     <state x="702" y="150" key="refactoring.ChangeSignatureDialog" timestamp="1585124880829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="702" y="150" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585124880829" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1585082957685">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1585164821474">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585082957685" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585136766715">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585164821474" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585161052989">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585136766715" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585161052989" />
   </component>
 </project>

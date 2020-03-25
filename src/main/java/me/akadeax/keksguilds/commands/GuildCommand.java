@@ -20,7 +20,9 @@ public class GuildCommand implements CommandExecutor, TabCompleter {
             put("create", new GuildCreateSubcommand());
             put("leave", new GuildLeaveSubcommand());
             put("disband", new GuildDisbandSubcommand());
-            put("join", new GuildJoinCommand());
+            put("accept", new GuildAcceptSubcommand());
+            put("invite", new GuildInviteSubcommand());
+            put("info", new GuildInfoSubcommand());
         }
     };
 

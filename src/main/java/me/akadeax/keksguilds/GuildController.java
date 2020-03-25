@@ -1,10 +1,20 @@
 package me.akadeax.keksguilds;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * I hate making comments that have to explain a class, but here we go.
+ * all the actual controller functions in here (mostly at the bottom of this!) return a string: That string is a
+ * sort-of custom error log. The subcommand classes take that string and respond with their corresponding error messages
+ * for those special cases, e.g. returning "notLeader" makes the subcommand class send whatever is specified in the config
+ * for that. for example "Can't do that, you're not the guild leader!" or something of the sort.
+ */
 public class GuildController {
     private static List<Guild> loadedGuilds;
 
@@ -89,14 +99,29 @@ public class GuildController {
     }
 
     /**
-     * make 'join' join guild with name 'toJoin'
-     * @return "alreadyInGuild", "notExists", "maxMemberCount", "success"
+     * invites 'receiverName' into the senders guild.
+     * @return "playerNotFound", "notInGuild", "notLeader", "success"
      */
-    public static String joinGuild(String toJoin, UUID user) {
+    public static String sendGuildInvite(UUID sender, String receiverName) {
+        Player mention = Bukkit.getPlayer(receiverName);
+        if(mention == null) return "playerNotFound";
+        else if(mention.getUniqueId().equals(sender)) return "inviteSelf";
+        else if(isInGuild(mention.getUniqueId())) return "targetInGuild";
+
+        return InviteHandler.sendInvite(sender, mention.getUniqueId());
+    }
+
+    /**
+     * make 'join' join guild with name 'toJoin'
+     * @return "alreadyInGuild", "notInvited", "notExists", "maxMemberCount", "success"
+     */
+    public static String acceptGuildInvite(String toJoin, UUID user) {
         if(isInGuild(user)) return "alreadyInGuild";
 
         Guild guildToJoin = getGuild(toJoin);
         if(guildToJoin == null) return "notExists";
+
+        if(!InviteHandler.hasInvite(user, toJoin)) return "notInvited";
 
         if(guildToJoin.members.size() >= guildToJoin.getMaxMembers()) return "maxMemberCount";
 
@@ -119,6 +144,7 @@ public class GuildController {
 
         loadedGuilds.remove(leaderGuild);
         SaveLoadHandler.saveGuilds();
+        InviteHandler.removeInvites(leaderGuild.name);
         return "success";
     }
 }

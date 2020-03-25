@@ -5,7 +5,7 @@ import me.akadeax.keksguilds.upgrades.GuildUpgrade;
 
 public class GuildSlotUpgradeHandler extends UpgradeHandler {
     @Override
-    public void onServerStart(Guild g, GuildUpgrade upgrade) {
-        g.baseMaxMembers += upgrade.amount;
+    public void onServerUpdate(Guild g, GuildUpgrade upgrade) {
+        g.additionalGuildSlots = upgrade.amount;
     }
 }

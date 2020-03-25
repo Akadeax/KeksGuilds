@@ -11,10 +11,9 @@ public class Guild {
     @Expose
     public String name;
 
-    public int baseMaxMembers;
+    public int additionalGuildSlots;
     public int getMaxMembers() {
-        System.out.println(baseMaxMembers);
-        return baseMaxMembers + (guildLvl - 1);
+        return KeksGuilds.config.getInt("guildDefault.maxMembers") + additionalGuildSlots + (guildLvl - 1);
     }
 
     @Expose
@@ -28,19 +27,16 @@ public class Guild {
     @Expose
     public List<GuildUpgrade> upgrades = new ArrayList<>();
 
-    public Guild() {
-         baseMaxMembers = KeksGuilds.config.getInt("guildDefault.maxMembers");
-    }
-
     public Guild(String name) {
-        this();
-        System.out.println("1Const called");
         this.name = name;
     }
 
+    public Guild(Guild other) {
+        this(other.name);
+        this.members = other.members;
+    }
+
     public Guild(String name, UUID leader) {
-        this();
-        System.out.println("2ConstCalled");
         this.name = name;
         members.add(new GuildMember(leader, 1));
     }
@@ -62,4 +58,5 @@ public class Guild {
     public void removeMember(UUID toRemove) {
         members.removeIf(gm -> gm.uuid.equals(toRemove));
     }
+
 }

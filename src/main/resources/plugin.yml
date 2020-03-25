@@ -1,0 +1,9 @@
+name: KeksGuilds
+version: ${project.version}
+main: me.akadeax.keksguilds.KeksGuilds
+api-version: "1.13"
+
+commands:
+  guild:
+    description: shows guild help.
+    usage: /<command>

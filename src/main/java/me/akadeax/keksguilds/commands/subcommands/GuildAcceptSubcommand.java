@@ -4,6 +4,8 @@ import me.akadeax.keksguilds.Guild;
 import me.akadeax.keksguilds.GuildController;
 import me.akadeax.keksguilds.GuildMember;
 import me.akadeax.keksguilds.KeksGuilds;
+import me.akadeax.keksguilds.commands.CommandError;
+import me.akadeax.keksguilds.commands.CommandResultState;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -13,18 +15,14 @@ public class GuildAcceptSubcommand implements Subcommand {
 
     private String guildJoinedMessage = KeksGuilds.config.getString("messages.join.success");
     private String guildJoinedNotification = KeksGuilds.config.getString("messages.join.notification");
-    private String nameNotExistError = KeksGuilds.config.getString("messages.join.nameNotExists");
-    private String noInviteError = KeksGuilds.config.getString("messages.join.noInvite");
-    private String alreadyInGuildError = KeksGuilds.config.getString("messages.join.alreadyInGuild");
-    private String maxMemberCountError = KeksGuilds.config.getString("messages.join.maxMemberCount");
 
     @Override
     public boolean onCommand(Player sender, ArrayList<String> args) {
         if(args.size() != 1) return false;
 
-        String result = GuildController.acceptGuildInvite(args.get(0), sender.getUniqueId());
+        CommandResultState result = GuildController.acceptGuildInvite(args.get(0), sender.getUniqueId());
         switch(result) {
-            case "success":
+            case Success:
                 Guild guild = GuildController.getGuild(sender.getUniqueId());
                 if(guild == null) return false;
 
@@ -41,14 +39,8 @@ public class GuildAcceptSubcommand implements Subcommand {
                     gmPlayer.sendMessage(notificationMessage);
                 }
                 break;
-            case "notExists":
-                sender.sendMessage(nameNotExistError); break;
-            case "notInvited":
-                sender.sendMessage(noInviteError); break;
-            case "alreadyInGuild":
-                sender.sendMessage(alreadyInGuildError); break;
-            case "maxMemberCount":
-                sender.sendMessage(maxMemberCountError); break;
+            default:
+                sender.sendMessage(CommandError.getErrorMessage(result));
         }
 
         return true;

@@ -4,6 +4,8 @@ import me.akadeax.keksguilds.Guild;
 import me.akadeax.keksguilds.GuildController;
 import me.akadeax.keksguilds.GuildMember;
 import me.akadeax.keksguilds.KeksGuilds;
+import me.akadeax.keksguilds.commands.CommandError;
+import me.akadeax.keksguilds.commands.CommandResultState;
 import me.akadeax.keksguilds.upgrades.GuildUpgadeTemplate;
 import me.akadeax.keksguilds.upgrades.GuildUpgrade;
 import me.akadeax.keksguilds.upgrades.GuildUpgradesController;
@@ -17,7 +19,6 @@ public class GuildInfoSubcommand implements Subcommand {
     private String infoFormat = KeksGuilds.config.getString("messages.info.format");
     private String memberDisplay = KeksGuilds.config.getString("messages.info.memberDisplay");
     private String upgradeDisplay = KeksGuilds.config.getString("messages.info.upgradeDisplay");
-    private String notInGuildError = KeksGuilds.config.getString("messages.info.notInGuild");
 
     @Override
     public boolean onCommand(Player sender, ArrayList<String> args) {
@@ -25,7 +26,7 @@ public class GuildInfoSubcommand implements Subcommand {
 
         Guild senderGuild = GuildController.getGuild(sender.getUniqueId());
         if(senderGuild == null) {
-            sender.sendMessage(notInGuildError);
+            sender.sendMessage(CommandError.getErrorMessage(CommandResultState.NotInGuild));
             return true;
         }
 

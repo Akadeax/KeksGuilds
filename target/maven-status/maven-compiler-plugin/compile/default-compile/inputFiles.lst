@@ -1,4 +1,5 @@
 D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\KeksGuilds.java
+D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\commands\subcommands\GuildInfoSubcommand.java
 D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\upgrades\upgradeHandlers\UpgradeHandler.java
 D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\commands\subcommands\GuildAcceptSubcommand.java
 D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\commands\subcommands\Subcommand.java
@@ -8,6 +9,7 @@ D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksgu
 D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\upgrades\GuildUpgadeTemplate.java
 D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\upgrades\GuildUpgrade.java
 D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\SaveLoadHandler.java
+D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\upgrades\upgradeHandlers\GuildProximitySpeedHandler.java
 D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\upgrades\GuildUpgradesController.java
 D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\commands\subcommands\GuildCreateSubcommand.java
 D:\dev\Programming\Java\Plugins\Comission\Guilds\src\main\java\me\akadeax\keksguilds\util\JsonUtil.java

@@ -4,18 +4,17 @@ import me.akadeax.keksguilds.Guild;
 import me.akadeax.keksguilds.GuildController;
 import me.akadeax.keksguilds.GuildMember;
 import me.akadeax.keksguilds.KeksGuilds;
+import me.akadeax.keksguilds.commands.CommandError;
+import me.akadeax.keksguilds.commands.CommandResultState;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class GuildDisbandSubcommand implements Subcommand {
 
     private String guildDisbandedMessage = KeksGuilds.config.getString("messages.disband.success");
     private String guildDisbandedNotification = KeksGuilds.config.getString("messages.disband.notification");
-    private String notInGuildErorr = KeksGuilds.config.getString("messages.disband.notInGuild");
-    private String notLeaderError = KeksGuilds.config.getString("messages.disband.notLeader");
 
     @Override
     public boolean onCommand(Player sender, ArrayList<String> args) {
@@ -24,9 +23,9 @@ public class GuildDisbandSubcommand implements Subcommand {
 
         Guild guild = GuildController.getGuild(sender.getUniqueId());
         if(guild != null) guild = new Guild(guild);
-        String result = GuildController.disbandGuild(sender.getUniqueId());
+        CommandResultState result = GuildController.disbandGuild(sender.getUniqueId());
         switch(result) {
-            case "success":
+            case Success:
                 if(guild == null) return false;
                 String message = guildDisbandedMessage.replace("{GUILD}", guild.name);
                 sender.sendMessage(message);
@@ -40,11 +39,8 @@ public class GuildDisbandSubcommand implements Subcommand {
                     if(gmPlayer == null) continue;
                     gmPlayer.sendMessage(notificationMessage);
                 }
-                break;
-            case "notInGuild":
-                sender.sendMessage(notInGuildErorr); break;
-            case "notLeader":
-                sender.sendMessage(notLeaderError); break;
+            default:
+                sender.sendMessage(CommandError.getErrorMessage(result));
         }
 
         return true;

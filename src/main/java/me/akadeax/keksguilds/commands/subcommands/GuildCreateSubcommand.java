@@ -2,6 +2,8 @@ package me.akadeax.keksguilds.commands.subcommands;
 
 import me.akadeax.keksguilds.GuildController;
 import me.akadeax.keksguilds.KeksGuilds;
+import me.akadeax.keksguilds.commands.CommandError;
+import me.akadeax.keksguilds.commands.CommandResultState;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -11,9 +13,6 @@ import java.util.UUID;
 public class GuildCreateSubcommand implements Subcommand {
 
     private String guildCreatedMessage = KeksGuilds.config.getString("messages.create.success");
-    private String guildNameExistsError = KeksGuilds.config.getString("messages.create.guildNameExists");
-    private String alreadyInGuildError = KeksGuilds.config.getString("messages.create.alreadyInGuild");
-
 
     @Override
     public boolean onCommand(Player sender, ArrayList<String> args) {
@@ -22,15 +21,13 @@ public class GuildCreateSubcommand implements Subcommand {
         String name = args.get(0);
         UUID leader = sender.getUniqueId();
 
-        String result = GuildController.createGuild(name, leader);
+        CommandResultState result = GuildController.createGuild(name, leader);
         switch(result) {
-            case "success":
+            case Success:
                 String message = guildCreatedMessage.replace("{GUILD}", args.get(0));
                 sender.sendMessage(message); break;
-            case "exists":
-                sender.sendMessage(guildNameExistsError); break;
-            case "alreadyInGuild":
-                sender.sendMessage(alreadyInGuildError); break;
+            default:
+                sender.sendMessage(CommandError.getErrorMessage(result));
         }
 
         return true;

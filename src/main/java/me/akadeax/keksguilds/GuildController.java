@@ -1,5 +1,6 @@
 package me.akadeax.keksguilds;
 
+import me.akadeax.keksguilds.commands.CommandResultState;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -8,16 +9,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * I hate making comments that have to explain a class, but here we go.
- * all the actual controller functions in here (mostly at the bottom of this!) return a string: That string is a
- * sort-of custom error log. The subcommand classes take that string and respond with their corresponding error messages
- * for those special cases, e.g. returning "notLeader" makes the subcommand class send whatever is specified in the config
- * for that. for example "Can't do that, you're not the guild leader!" or something of the sort.
- */
 public class GuildController {
     private static List<Guild> loadedGuilds;
 
+    /**
+     * sets loaded guilds
+     * @return whether loadedGuilds has been filled
+     */
     public static boolean setLoadedGuilds(Guild[] guilds) {
         loadedGuilds = new ArrayList<>(Arrays.asList(guilds));
         return loadedGuilds.size() > 0;
@@ -70,15 +68,15 @@ public class GuildController {
      * creates a guild and adds it to loaded guilds
      * @param name the name of the guild to create
      * @param leader uuid of the leader
-     * @return "exists", "alreadyInGuild", "success"
+     * @return NameAlreadyExists, AlreadyInGuild, Success
      */
-    public static String createGuild(String name, UUID leader) {
-        if(getGuild(name) != null) return "exists";
-        if(isInGuild(leader)) return "alreadyInGuild";
+    public static CommandResultState createGuild(String name, UUID leader) {
+        if(getGuild(name) != null) return CommandResultState.GuildAlreadyExists;
+        if(isInGuild(leader)) return CommandResultState.AlreadyInGuild;
         Guild newGuild = new Guild(name, leader);
         loadedGuilds.add(newGuild);
         SaveLoadHandler.saveGuilds();
-        return "success";
+        return CommandResultState.Success;
     }
 
     /**
@@ -86,27 +84,27 @@ public class GuildController {
      * @param leaver the player to remove
      * @return "notInGuild", "isLeader", "success"
      */
-    public static String leaveGuild(UUID leaver) {
+    public static CommandResultState leaveGuild(UUID leaver) {
         Guild leaverGuild = getGuild(leaver);
-        if(leaverGuild == null) return "notInGuild";
+        if(leaverGuild == null) return CommandResultState.NotInGuild;
 
         GuildMember leaverMember = leaverGuild.getMember(leaver);
-        if(leaverMember.rank == 1 || leaverGuild.members.size() == 1) return "isLeader";
+        if(leaverMember.rank == 1 || leaverGuild.members.size() == 1) return CommandResultState.IsLeader;
 
         leaverGuild.removeMember(leaver);
         SaveLoadHandler.saveGuilds();
-        return "success";
+        return CommandResultState.Success;
     }
 
     /**
      * invites 'receiverName' into the senders guild.
      * @return "playerNotFound", "notInGuild", "notLeader", "success"
      */
-    public static String sendGuildInvite(UUID sender, String receiverName) {
+    public static CommandResultState sendGuildInvite(UUID sender, String receiverName) {
         Player mention = Bukkit.getPlayer(receiverName);
-        if(mention == null) return "playerNotFound";
-        else if(mention.getUniqueId().equals(sender)) return "inviteSelf";
-        else if(isInGuild(mention.getUniqueId())) return "targetInGuild";
+        if(mention == null) return CommandResultState.PlayerNotFound;
+        else if(mention.getUniqueId().equals(sender)) return CommandResultState.InvitedSelf;
+        else if(isInGuild(mention.getUniqueId())) return CommandResultState.TargetInGuild;
 
         return InviteHandler.sendInvite(sender, mention.getUniqueId());
     }
@@ -115,36 +113,34 @@ public class GuildController {
      * make 'join' join guild with name 'toJoin'
      * @return "alreadyInGuild", "notInvited", "notExists", "maxMemberCount", "success"
      */
-    public static String acceptGuildInvite(String toJoin, UUID user) {
-        if(isInGuild(user)) return "alreadyInGuild";
+    public static CommandResultState acceptGuildInvite(String toJoin, UUID user) {
+        if(isInGuild(user)) return CommandResultState.AlreadyInGuild;
 
         Guild guildToJoin = getGuild(toJoin);
-        if(guildToJoin == null) return "notExists";
+        if(guildToJoin == null) return CommandResultState.GuildNotExists;
 
-        if(!InviteHandler.hasInvite(user, toJoin)) return "notInvited";
+        if(!InviteHandler.hasInvite(user, toJoin)) return CommandResultState.NotInvited;
 
-        if(guildToJoin.members.size() >= guildToJoin.getMaxMembers()) return "maxMemberCount";
+        if(guildToJoin.members.size() >= guildToJoin.getMaxMembers()) return CommandResultState.MaxMembersReached;
 
         guildToJoin.members.add(new GuildMember(user, 0));
         SaveLoadHandler.saveGuilds();
-        return "success";
+        return CommandResultState.Success;
     }
 
     /**
      * disbands guild that 'leader' is in
      * @return "notInGuild", "notLeader", "success"
      */
-    public static String disbandGuild(UUID leader) {
-        if(!isInGuild(leader)) return "notInGuild";
-
+    public static CommandResultState disbandGuild(UUID leader) {
         Guild leaderGuild = getGuild(leader);
-        if(leaderGuild == null) return "notInGuild";
+        if(leaderGuild == null) return CommandResultState.NotInGuild;
         GuildMember leaderMember = leaderGuild.getMember(leader);
-        if(leaderMember.rank != 1) return "notLeader";
+        if(leaderMember.rank != 1) return CommandResultState.NotLeader;
 
         loadedGuilds.remove(leaderGuild);
         SaveLoadHandler.saveGuilds();
         InviteHandler.removeInvites(leaderGuild.name);
-        return "success";
+        return CommandResultState.IsLeader;
     }
 }

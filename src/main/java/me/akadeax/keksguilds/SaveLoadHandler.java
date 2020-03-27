@@ -25,14 +25,10 @@ public class SaveLoadHandler {
 
         try {
             if(guildListFile.createNewFile()) {
-                JsonUtil.writeJson(guildListFile, new Guild[] {
-                        new Guild("new")
-                });
+                JsonUtil.writeJson(guildListFile, new Guild[] { });
             }
             if(guildUpgradesFile.createNewFile()) {
-                JsonUtil.writeJson(guildUpgradesFile, new GuildUpgadeTemplate[] {
-                        new GuildUpgadeTemplate()
-                });
+                JsonUtil.writeJson(guildUpgradesFile, new GuildUpgadeTemplate[] { });
             }
         } catch(IOException e) {
             e.printStackTrace();
